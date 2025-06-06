@@ -3,44 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pay with UPI</title>
+  <title>Pay Vemuri Sai Srinivas via UPI</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", sans-serif;
+      background: #f0f9ff;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
-      background-color: #e0f7fa;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
     }
-    button {
-      padding: 15px 30px;
-      font-size: 18px;
+
+    h1 {
+      color: #0077cc;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .upi-button {
       background-color: #1e88e5;
       color: white;
       border: none;
+      padding: 15px 30px;
+      font-size: 18px;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
     }
-    button:hover {
+
+    .upi-button:hover {
       background-color: #1565c0;
+    }
+
+    .qr-section {
+      text-align: center;
+    }
+
+    .qr-section img {
+      width: 240px;
+      height: 240px;
+      margin-top: 10px;
+      border: 10px solid white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #999;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <button onclick="payNow()">💰 Pay ₹100 via UPI</button>
+  <h1>Pay ₹100 to Vemuri Sai Srinivas</h1>
+
+  <button class="upi-button" onclick="payNow()">💰 Pay via UPI App</button>
+
+  <div class="qr-section">
+    <p>OR scan this QR code:</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi://pay?pa=vemuri.srinivas1@ybl&pn=Vemuri%20Sai%20Srinivas&am=100.00&cu=INR&tn=Local%20Superman%20Subscription" alt="UPI QR Code" />
+    <p class="note">UPI ID: <strong>vemuri.srinivas1@ybl</strong></p>
+  </div>
+
+  <div class="footer">
+    Made for <strong>Local Superman</strong><br />
+    Powered by <em>Vemuri Sai Srinivas</em>
+  </div>
 
   <script>
     function payNow() {
-      const upiId = 'vemuri.srinivas1@ybl';
-      const name = 'Vemuri Sai Srinivas';
-      const amount = '100.00';
-      const note = 'Local Superman Subscription';
-
-      const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
-
+      const upiUrl = "upi://pay?pa=vemuri.srinivas1@ybl&pn=Vemuri%20Sai%20Srinivas&am=100.00&cu=INR&tn=Local%20Superman%20Subscription";
       window.location.href = upiUrl;
     }
   </script>
